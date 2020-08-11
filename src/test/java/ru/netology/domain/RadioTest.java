@@ -6,44 +6,138 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
     @Test
-    public void shouldNextRadiostation() {
+    public void shouldNextRadiostation1() {
         Radio radio = new Radio();
+        radio.setCurrentRadiostationNumber(5);
+        radio.nextRadiostation();
 
-        assertEquals(5, radio.nextRadiostation(4));
-        assertEquals(0, radio.nextRadiostation(9));
-        assertEquals(9, radio.nextRadiostation(10));
-        assertEquals(0, radio.nextRadiostation(-10));
+        assertEquals(6, radio.getCurrentRadiostationNumber());
+
     }
 
     @Test
-    public void shouldPrevRadiostation() {
+    public void shouldNextRadiostation2() {
         Radio radio = new Radio();
+        radio.setCurrentRadiostationNumber(9);
+        radio.nextRadiostation();
 
-        assertEquals(4, radio.prevRadiostation(5));
-        assertEquals(9, radio.prevRadiostation(0));
-        assertEquals(9, radio.prevRadiostation(10));
-        assertEquals(0, radio.prevRadiostation(-10));
+        assertEquals(0, radio.getCurrentRadiostationNumber());
+
     }
 
     @Test
-    public void shouldVolumeUp() {
+    public void shouldNextRadiostation3() {
         Radio radio = new Radio();
+        radio.setCurrentRadiostationNumber(12);
+        radio.nextRadiostation();
 
-        assertEquals(5, radio.volumeUp(4));
-        assertEquals(10, radio.volumeUp(10));
-        assertEquals(10, radio.volumeUp(11));
-        assertEquals(0, radio.volumeUp(-2));
+        assertEquals(9, radio.getCurrentRadiostationNumber());
+
     }
 
     @Test
-    public void shouldVomumeDown() {
+    public void shouldNextRadiostation4() {
         Radio radio = new Radio();
+        radio.setCurrentRadiostationNumber(-1);
+        radio.nextRadiostation();
 
-        assertEquals(5, radio.volumeDown(6));
-        assertEquals(9, radio.volumeDown(10));
-        assertEquals(10, radio.volumeDown(12));
-        assertEquals(0, radio.volumeDown(0));
-        assertEquals(0, radio.volumeDown(-3));
+        assertEquals(0, radio.getCurrentRadiostationNumber());
+
+    }
+
+
+    @Test
+    public void shouldPrevRadiostation1() {
+        Radio radio = new Radio();
+        radio.setCurrentRadiostationNumber(5);
+        radio.prevRadiostation();
+
+        assertEquals(4, radio.getCurrentRadiostationNumber());
+
+    }
+
+    @Test
+    public void shouldPrevRadiostation2() {
+        Radio radio = new Radio();
+        radio.setCurrentRadiostationNumber(0);
+        radio.prevRadiostation();
+
+        assertEquals(9, radio.getCurrentRadiostationNumber());
+
+    }
+
+    @Test
+    public void shouldPrevRadiostation3() {
+        Radio radio = new Radio();
+        radio.setCurrentRadiostationNumber(12);
+        radio.prevRadiostation();
+
+        assertEquals(9, radio.getCurrentRadiostationNumber());
+
+    }
+
+    @Test
+    public void shouldPrevRadiostation4() {
+        Radio radio = new Radio();
+        radio.setCurrentRadiostationNumber(-2);
+        radio.prevRadiostation();
+
+        assertEquals(0, radio.getCurrentRadiostationNumber());
+
+    }
+
+    @Test
+    public void shouldVolumeUp1() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(5);
+        radio.volumeUp();
+
+        assertEquals(6, radio.getCurrentVolume());
+    }
+
+    @Test
+    public void shouldVolumeUp2() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(12);
+        radio.volumeUp();
+
+        assertEquals(10, radio.getCurrentVolume());
+    }
+
+    @Test
+    public void shouldVolumeUp3() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(-2);
+        radio.volumeUp();
+
+        assertEquals(0, radio.getCurrentVolume());
+    }
+
+    @Test
+    public void shouldVomumeDown1() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(6);
+        radio.volumeDown();
+
+        assertEquals(5, radio.getCurrentVolume());
+    }
+
+    @Test
+    public void shouldVomumeDown2() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(12);
+        radio.volumeDown();
+
+        assertEquals(10, radio.getCurrentVolume());
+    }
+
+    @Test
+    public void shouldVomumeDown3() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(-1);
+        radio.volumeDown();
+
+        assertEquals(0, radio.getCurrentVolume());
     }
 
 }

@@ -8,7 +8,7 @@ public class Radio {
     private int volumeMin = 0;
     private int currentVolume;
 
-    public int nextRadiostation(int currentRadiostationNumber) {
+    public void nextRadiostation() {
         if (currentRadiostationNumber >= radiostationNumberMin & currentRadiostationNumber < radiostationNumberMax) {
             this.currentRadiostationNumber = currentRadiostationNumber + 1;
         }
@@ -21,10 +21,10 @@ public class Radio {
             this.currentRadiostationNumber = radiostationNumberMax;
         }
 
-        return this.currentRadiostationNumber;
+        this.currentRadiostationNumber = currentRadiostationNumber;
     }
 
-    public int prevRadiostation(int currentRadiostationNumber) {
+    public void prevRadiostation() {
         if (currentRadiostationNumber > radiostationNumberMin & currentRadiostationNumber <= radiostationNumberMax) {
             this.currentRadiostationNumber = currentRadiostationNumber - 1;
         }
@@ -37,10 +37,11 @@ public class Radio {
             this.currentRadiostationNumber = radiostationNumberMin;
         }
 
-        return this.currentRadiostationNumber;
+        this.currentRadiostationNumber = currentRadiostationNumber;
     }
 
-    public int volumeUp(int currentVolume) {
+
+    public void volumeUp() {
         if (currentVolume >= volumeMin & currentVolume < volumeMax) {
             this.currentVolume = currentVolume + 1;
         }
@@ -52,10 +53,10 @@ public class Radio {
         if (currentVolume < volumeMin) {
             this.currentVolume = volumeMin;
         }
-        return this.currentVolume;
+        this.currentVolume = currentVolume;
     }
 
-    public int volumeDown(int currentVolume) {
+    public void volumeDown() {
         if (currentVolume > volumeMin & currentVolume <= volumeMax) {
             this.currentVolume = currentVolume - 1;
         }
@@ -67,7 +68,22 @@ public class Radio {
         if (currentVolume > volumeMax) {
             this.currentVolume = volumeMax;
         }
-        return this.currentVolume;
+        this.currentVolume = currentVolume;
     }
 
+    public int getCurrentRadiostationNumber() {
+        return currentRadiostationNumber;
+    }
+
+    public void setCurrentRadiostationNumber(int currentRadiostationNumber) {
+        this.currentRadiostationNumber = currentRadiostationNumber;
+    }
+
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+    public void setCurrentVolume(int currentVolume) {
+        this.currentVolume = currentVolume;
+    }
 }
