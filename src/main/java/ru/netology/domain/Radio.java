@@ -21,7 +21,6 @@ public class Radio {
             this.currentRadiostationNumber = radiostationNumberMax;
         }
 
-        this.currentRadiostationNumber = currentRadiostationNumber;
     }
 
     public void prevRadiostation() {
@@ -37,7 +36,6 @@ public class Radio {
             this.currentRadiostationNumber = radiostationNumberMin;
         }
 
-        this.currentRadiostationNumber = currentRadiostationNumber;
     }
 
 
@@ -53,7 +51,7 @@ public class Radio {
         if (currentVolume < volumeMin) {
             this.currentVolume = volumeMin;
         }
-        this.currentVolume = currentVolume;
+
     }
 
     public void volumeDown() {
@@ -68,7 +66,7 @@ public class Radio {
         if (currentVolume > volumeMax) {
             this.currentVolume = volumeMax;
         }
-        this.currentVolume = currentVolume;
+
     }
 
     public int getCurrentRadiostationNumber() {
